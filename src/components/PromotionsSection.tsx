@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Tag, TrendingDown, Percent } from "lucide-react";
 
-const PromotionsSection = () => {
+const PromotionsSection = ({ id }: { id?: string }) => {
   const promotions = [
     {
       icon: Percent,
@@ -28,7 +28,7 @@ const PromotionsSection = () => {
   };
 
   return (
-    <section className="py-24 bg-promo">
+    <section id={id} className="py-24 bg-promo scroll-mt-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-promo-foreground mb-6">

@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-const ContactSection = () => {
+const ContactSection = ({ id }: { id?: string }) => {
   const [email, setEmail] = useState("");
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
@@ -16,7 +16,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-24 bg-secondary">
+    <section id={id} className="py-24 bg-secondary scroll-mt-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Newsletter */}
