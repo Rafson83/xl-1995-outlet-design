@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const ContactSection = ({ id }: { id?: string }) => {
   const [email, setEmail] = useState("");
@@ -18,9 +19,26 @@ const ContactSection = ({ id }: { id?: string }) => {
   return (
     <section id={id} className="py-24 bg-secondary scroll-mt-20">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.2
+              }
+            }
+          }}
+        >
           {/* Newsletter */}
-          <div className="animate-slide-up">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, x: -30 },
+              visible: { opacity: 1, x: 0 }
+            }}
+          >
             <h2 className="text-3xl md:text-4xl font-black text-secondary-foreground mb-6">
               Bądź na Bieżąco!
             </h2>
@@ -40,10 +58,15 @@ const ContactSection = ({ id }: { id?: string }) => {
                 ZAPISZ SIĘ
               </Button>
             </form>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, x: 30 },
+              visible: { opacity: 1, x: 0 }
+            }}
+          >
             <h2 className="text-3xl md:text-4xl font-black text-secondary-foreground mb-6">
               Kontakt
             </h2>
@@ -92,8 +115,8 @@ const ContactSection = ({ id }: { id?: string }) => {
                 <Facebook className="w-5 h-5 text-foreground" />
               </a>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
