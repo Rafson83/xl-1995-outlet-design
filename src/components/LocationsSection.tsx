@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Navigation } from "lucide-react";
+import { motion } from "framer-motion";
 
 const LocationsSection = ({ id }: { id?: string }) => {
   const locations = [
@@ -22,21 +23,42 @@ const LocationsSection = ({ id }: { id?: string }) => {
   return (
     <section id={id} className="py-24 bg-background scroll-mt-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-slide-up">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
             Odwiedź Nasze Outlety
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Zapraszamy do naszych sklepów stacjonarnych. Doświadczony personel pomoże Ci znaleźć idealny outfit.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {locations.map((location, index) => (
-            <div
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.2
+              }
+            }
+          }}
+        >
+          {locations.map((location) => (
+            <motion.div
               key={location.name}
-              className="bg-card border-2 border-border rounded-lg overflow-hidden hover:border-accent transition-all duration-300 hover:shadow-2xl animate-slide-up"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="bg-card border-2 border-border rounded-lg overflow-hidden hover:border-accent transition-all duration-300 hover:shadow-2xl"
+              variants={{
+                hidden: { opacity: 0, x: -30 },
+                visible: { opacity: 1, x: 0 }
+              }}
             >
               {/* Map Placeholder */}
               <div className="h-48 bg-muted relative overflow-hidden group">
@@ -75,9 +97,9 @@ const LocationsSection = ({ id }: { id?: string }) => {
                   WYZNACZ TRASĘ
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
