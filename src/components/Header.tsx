@@ -7,7 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import xlLogo from "@/assets/xl-logo.png";
+import xlLogo from "@/assets/XL-logo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
