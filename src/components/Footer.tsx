@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
@@ -52,19 +54,19 @@ const Footer = () => {
             <h4 className="text-lg font-bold mb-4">Informacje Prawne</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/polityka-prywatnosci" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                <Link to="/polityka-prywatnosci" className="text-primary-foreground/70 hover:text-accent transition-colors">
                   Polityka Prywatności
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/regulamin" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                <Link to="/regulamin" className="text-primary-foreground/70 hover:text-accent transition-colors">
                   Regulamin
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/rodo" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                <Link to="/rodo" className="text-primary-foreground/70 hover:text-accent transition-colors">
                   RODO
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
