@@ -5,16 +5,16 @@ import { motion } from "framer-motion";
 const LocationsSection = ({ id }: { id?: string }) => {
   const locations = [
     {
-      name: "XL 1995 - Warszawa Centrum",
-      address: "ul. Marszałkowska 123",
-      city: "00-001 Warszawa",
+      name: "XL 1995 - Łódź",
+      address: "Al Jana Pawła II 30",
+      city: "93-535 Łódź",
       hours: "Pn-Pt: 10:00 - 20:00 | Sb-Nd: 10:00 - 18:00",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Marszałkowska+123+Warszawa",
     },
     {
-      name: "XL 1995 - Kraków Podgórze",
-      address: "ul. Wielicka 259",
-      city: "30-663 Kraków",
+      name: "XL 1995 - Pabianice",
+      address: "ul. Zamkowa 30",
+      city: "95-200 Pabianice",
       hours: "Pn-Pt: 10:00 - 20:00 | Sb-Nd: 10:00 - 18:00",
       mapUrl: "https://www.google.com/maps/search/?api=1&query=Wielicka+259+Kraków",
     },
